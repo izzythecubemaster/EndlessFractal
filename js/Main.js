@@ -1,7 +1,8 @@
 ﻿/*
 * Original Author: Iacopo Sassarini
 * Modified By: Israel Montoya - izzythecubemaster@gmail.com
-*/  
+*/
+
 if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
 
 var VISUALS_VISIBLE = true;
@@ -67,8 +68,8 @@ var windowHalfX = window.innerWidth / 2;
 var windowHalfY = window.innerHeight / 2;
 
 // Initial speed relative to hardware speed (original = 6)
-var speed = 6;
-// Initial rotation speed
+var speed = 1;
+// Initial rotation speed (original = 0.005)
 var rotationSpeed = 0.005;
 
 init();
@@ -82,8 +83,9 @@ function init() {
     sprite1 = THREE.ImageUtils.loadTexture("cubeLR.png");
 
     container = document.createElement( 'div' );
-    document.body.appendChild( container );
-    camera = new THREE.PerspectiveCamera(82, window.innerWidth / window.innerHeight, 1, 3 * SCALE_FACTOR );
+    document.body.appendChild(container);
+    // Camera FOV default 82
+    camera = new THREE.PerspectiveCamera(90, window.innerWidth / window.innerHeight, 1, 3 * SCALE_FACTOR );
     camera.position.z = SCALE_FACTOR/2;
     scene = new THREE.Scene();
     // Fog - Default value 0.0012
