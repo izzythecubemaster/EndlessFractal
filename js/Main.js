@@ -11,7 +11,7 @@ var SCALE_FACTOR = 1500;
 var CAMERA_BOUND = 400;
 var NUM_POINTS_SUBSET = 40000;
 var NUM_SUBSETS       = 7;
-var NUM_POINTS = (NUM_POINTS_SUBSET * NUM_SUBSETS)*2;
+var NUM_POINTS = (NUM_POINTS_SUBSET * NUM_SUBSETS);
 //IM Default value: 5
 var NUM_LEVELS = 9;
 //IM Default value: 400;
@@ -111,7 +111,7 @@ function init() {
     }
 
     // Setup renderer and effects
-    renderer = new THREE.WebGLRenderer( { clearColor: 0x000000, clearAlpha: 1, antialias: true } );
+    renderer = new THREE.WebGLRenderer( { clearColor: 0x000000, clearAlpha: 1, antialias: false } );
     renderer.setSize( window.innerWidth, window.innerHeight );
 
     container.appendChild( renderer.domElement );
@@ -307,12 +307,27 @@ function onKeyDown(event) {
     //if(event.keyCode == 38 && speed < 20) speed += .5;
     // IM: New speed increase without limit (realistically hardware limited)
     if (event.keyCode == 38) speed += .5;
-    //else if (event.keyCode == 40 && speed > 0) speed -= .5;
+        //else if (event.keyCode == 40 && speed > 0) speed -= .5;
     else if (event.keyCode == 40) speed -= .5;
     else if (event.keyCode == 37) rotationSpeed += .001;
     else if (event.keyCode == 39) rotationSpeed -= .001;
     else if (event.keyCode == 72 || event.keyCode == 104) toggleVisuals();
+    // C
     else if (event.keyCode == 67) toggleChaos();
+    // W
+    else if (event.keyCode == 87) camera.position.y += 5;
+    // A
+    else if (event.keyCode == 83) camera.position.y -= 5;
+    // S
+    else if (event.keyCode == 65) camera.position.x -= 5;
+    // D
+    else if (event.keyCode == 68) camera.position.x += 5;
+    // Space
+    else if (event.keyCode == 32) {
+        camera.position.x = 0;
+        camera.position.y = 0;
+    }
+
 }
     
 function showHideAbout() {
