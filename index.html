@@ -1,0 +1,36 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <title>WebGL Endless Fractal</title>
+    <meta property="title" content="WebGL Endless Fractal" />
+    <meta property="description" content="An interactive flight through attractor orbits generated using Barry Martin's Hopalong formula." />
+    <meta property="og:title" content="WebGL Endless Fractal" />
+    <meta property="og:description" content="An interactive flight through attractor orbits generated using Barry Martin's Hopalong formula." />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" href="css/Styles.css" />
+</head>
+<body>
+    <script src="build/Three.js"></script>
+    <script src="js/Stats.js"></script>
+    <script src="js/Detector.js"></script>
+    <script src="js/RequestAnimationFrame.js"></script>
+    <script src="js/Main.js"></script>
+
+    <div id="info">
+        Endless Fractal Generator using Barry Martin's Hopalong forumula
+        <br /> [Up-Down] Control speed
+        <br /> [Left-Right] Control rotation
+        <br /> [H] Toggle info and cursor
+        <br /> [C] Toggle Chaos Mode
+        <br /> [F11] Toggle fullscreen
+    </div>
+    <!-- IM Sets GUI to invisible, but can be toggled with above commands -->
+    <script>
+        document.getElementById('info').style.display = 'none';
+        stats.domElement.style.display = 'none';
+        renderer.domElement.style.cursor = "none";
+        VISUALS_VISIBLE = false;
+    </script>
+</body>
+</html>
